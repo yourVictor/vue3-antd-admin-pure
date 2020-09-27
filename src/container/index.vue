@@ -25,7 +25,7 @@
         </a-layout-header>
         <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
           <router-view ref="child-ref" />
-          <icon type="el-icon-extend-back_to_top" :rotate="90" />
+          <icon type="el-icon-extend-language_en" :rotate="0" :spin="false" style="font-size: 30px" />
         </a-layout-content>
       </a-layout>
     </a-layout>
