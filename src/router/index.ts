@@ -1,25 +1,38 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+import Container from '@/container/index.vue'
 
-const routes: Array<RouteRecordRaw> = [
+const constantRouterMap: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/404',
+    name: 'error',
+    meta: { title: '404', hidden: true },
+    component: () => import(/* webpackChunkName: "error" */ '@/views/error/404.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/login',
+    name: 'login',
+    meta: { title: '登录', hidden: true },
+    component: () => import(/* webpackChunkName: "account" */ '@/views/account/login/index.vue')
+  },
+  {
+    path: '',
+    meta: { title: 'routes.dashboard', icon: 'el-icon-extend-dashboard' },
+    redirect: '/dashboard',
+    component: Container,
+    children: [
+      {
+        path: 'dashboard',
+        name: 'dashboard',
+        meta: { title: 'routes.dashboard', showParent: false },
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue')
+      }
+    ]
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes: constantRouterMap
 })
 
 export default router
