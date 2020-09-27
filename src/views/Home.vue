@@ -1,7 +1,13 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <a-button type="primary" ghost>
+      Primary
+    </a-button>
+    <a-checkbox v-model="checked" @change="onChange">
+      Checkbox
+    </a-checkbox>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
   </div>
 </template>
 
@@ -14,5 +20,10 @@ import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
     HelloWorld
   }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  checked = true
+  onChange(val: boolean) {
+    this.checked = val
+  }
+}
 </script>

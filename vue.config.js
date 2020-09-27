@@ -1,3 +1,8 @@
 module.exports = {
-  assetsDir: 'static'
+  assetsDir: 'static',
+  css: {
+    extract: true,
+    sourceMap: false,
+    requireModuleExtension: true
+  }
 }
