@@ -1,0 +1,52 @@
+@import
+"../../../styles/_variables",
+"../../../styles/_mixins";
+
+.login-wrapper{
+  @include flex;
+  @include center;
+
+  height: 100%;
+  vertical-align: middle;
+  background-size: cover;
+  box-sizing: border-box;
+
+  .login-form{
+    width: 80%;
+    max-width: 360px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.6);
+  
+    .form-title{
+      font-size: 18px;
+      font-weight: bolder;
+      text-align: center;
+      padding-bottom: 12px;
+    }
+    .ant-form-item{
+      // margin-bottom: 30px;
+
+      .ant-input{
+        padding-top: 7px;
+        padding-bottom: 5px;
+        line-height: 28px;
+        background: rgba(255,255,255,0.7);
+      }
+      .ant-input-prefix{
+        color: #777;
+        font-size: 18px;
+      }
+      .ant-input-suffix{
+        color: #999;
+        font-size: 18px;
+      }
+      .ant-input-affix-wrapper .ant-input:not(:first-child) {
+        padding-left: 36px;
+      }
+  
+      &:last-child{
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
